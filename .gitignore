@@ -1,0 +1,42 @@
+# --- Credentials and secrets: NEVER commit ---
+*.pem
+*.key
+.env
+.env.*
+!.env.example
+credentials.json
+service-account*.json
+token.json
+.earthengine/
+secrets/
+
+# --- Generated outputs (regenerate, don't version) ---
+*.html
+ecomine_step1_provenance.json
+ecomine_stage2_indicators.json
+outputs/
+exports/
+*.tif
+*.tiff
+*.geojson
+
+# --- Notebook state: outputs can embed project IDs and local paths ---
+.ipynb_checkpoints/
+
+# --- Python ---
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+*.egg-info/
+dist/
+build/
+.pytest_cache/
+.coverage
+
+# --- Editors / OS ---
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

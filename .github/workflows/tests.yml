@@ -1,0 +1,50 @@
+name: tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  core-logic:
+    # Only ecomine_core and its tests run here. They need no Earth Engine
+    # credentials, no network and no satellite data — which is precisely why the
+    # decision logic was factored out into ecomine_core in the first place.
+    # The GEE modules cannot be tested in CI without authenticating a service
+    # account, and committing one would be a security failure.
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.10", "3.11", "3.12"]
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install test dependencies
+        # pytest alone is not enough: the report tests import report.py, which
+        # imports reportlab at module level, and they read the generated PDF
+        # back with pypdf. Installing only pytest aborts the whole run at
+        # collection. The Earth Engine modules are still not tested here — they
+        # need a service account, and committing one would be a security
+        # failure — which is why the decision logic lives in ecomine_core.
+        run: |
+          python -m pip install --upgrade pip
+          pip install pytest reportlab pypdf
+
+      - name: Run core logic tests
+        run: pytest -v
+
+      - name: Check for accidentally committed secrets
+        run: |
+          if grep -rEn "ghp_[A-Za-z0-9]{20,}|AIza[A-Za-z0-9_-]{30,}|-----BEGIN [A-Z ]*PRIVATE KEY-----" \
+             --include="*.py" --include="*.ipynb" --include="*.md" --include="*.yml" . ; then
+            echo "::error::Possible credential found in tracked files"
+            exit 1
+          fi
+          echo "No credential patterns detected."

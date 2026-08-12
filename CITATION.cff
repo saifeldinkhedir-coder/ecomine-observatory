@@ -1,0 +1,33 @@
+cff-version: 1.2.0
+message: >-
+  If you use EcoMine Observatory, please cite it as below. This is an early
+  (v0.1.0) research tool. As of this release it has one supervised-classifier
+  accuracy figure, from a single site (Kangala, South Africa); that figure has
+  not been shown to transfer to other sites. Cite it as early-stage software,
+  not as a validated detector.
+title: "EcoMine Observatory"
+abstract: >-
+  Open-source multi-sensor screening tools for the environmental footprint of
+  mining in the Middle East and Africa, built on Google Earth Engine and the
+  opengeos stack. Produces spectral indices, change indicators with
+  site-adaptive thresholds, and machine-readable provenance. Emits screening
+  signals for expert review, not detections, attributions or compliance
+  findings.
+type: software
+authors:
+  - given-names: Seifeldin
+    family-names: Alkhedir
+    orcid: "https://orcid.org/0000-0003-0821-2991"
+    affiliation: "University of Khartoum"
+license: GPL-3.0
+repository-code: "https://github.com/REPLACE_WITH_YOUR_USERNAME/ecomine-observatory"
+keywords:
+  - remote sensing
+  - Google Earth Engine
+  - mining
+  - environmental monitoring
+  - Sentinel-1
+  - Sentinel-2
+  - change detection
+version: "0.1.0"
+date-released: "2026-08-11"
