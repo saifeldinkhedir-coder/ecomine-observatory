@@ -1,5 +1,7 @@
 # EcoMine Observatory
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21908692.svg)](https://doi.org/10.5281/zenodo.21908692)
+
 **Open-source, multi-sensor screening tools for the environmental footprint of mining in the Middle East and Africa.**
 
 Built on Google Earth Engine and the [opengeos](https://github.com/opengeos) stack (`geemap`, `leafmap`). All pixel computation happens on Earth Engine servers, so the tools run on ordinary hardware with no GPU.
