@@ -20,7 +20,7 @@ authors:
     orcid: "https://orcid.org/0000-0003-0821-2991"
     affiliation: "University of Khartoum"
 license: GPL-3.0
-repository-code: "https://github.com/REPLACE_WITH_YOUR_USERNAME/ecomine-observatory"
+repository-code: "https://github.com/saifeldinkhedir-coder/ecomine-observatory"
 keywords:
   - remote sensing
   - Google Earth Engine
