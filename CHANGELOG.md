@@ -59,8 +59,13 @@ first supervised-classifier accuracy figure.
   are hand-chosen, not derived. Each is flagged as arbitrary in provenance.
 - The Stage 3 figure is single-site and uses a pixel-level train/test split;
   it has not been tested for transfer to another site.
-- MEI integrates only the optical SEI; SRTM terrain and Sentinel-1 radar are
-  proven to work but not yet composite-index components.
+- MEI's default components are the optical VLI, SEI and WDI. Sentinel-1 radar
+  enters only as the opt-in RDI (`--radar`), so a 3-component and a
+  4-component MEI are different quantities and must not be compared directly.
+  SRTM terrain is excluded by design, not by omission: it is single-epoch and
+  contributes no baseline-vs-current change.
+- Sentinel-5P atmospheric screening is proven at regional scale in earlier
+  work but its code is not part of this release.
 - Site coordinates are visually confirmed, not surveyed.
 
 ### Not included

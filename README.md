@@ -21,9 +21,17 @@ Author: Seifeldin Alkhedir ([ORCID 0000-0003-0821-2991](https://orcid.org/0000-0
 
 A set of transparent, reproducible tools that:
 
-- Pull **Sentinel-2** optical and **Sentinel-1** radar imagery for a defined area
-- Compute core spectral indices — NDVI, NDWI, MNDWI, BSI, NDMI
-- Produce **change indicators** between two epochs: vegetation loss, surface exposure, water disturbance, and a composite summary
+- Pull imagery from **five sensors** for a defined area: **Sentinel-2** (10 m
+  optical), **Sentinel-1** (C-band radar, cloud-piercing), **Landsat 8/9**
+  (30 m optical, used for cross-validation), **SRTM** (terrain), and
+  **Sentinel-5P** (atmospheric - *regional screening only*, since TROPOMI's
+  5.5 x 3.5 km pixel is larger than a single mine site; the regional protocol
+  was verified in earlier work but its code is **not shipped in v0.1.0**)
+- Compute core spectral indices — NDVI, NDWI, MNDWI, BSI, NDMI — plus radar
+  features (VV, VH, VV−VH) and terrain features (elevation, slope), 16 in all
+- Produce **change indicators** between two epochs: vegetation loss (VLI),
+  surface exposure (SEI), water disturbance (WDI), an optional radar
+  disturbance index (RDI, `--radar`), and a composite summary (MEI)
 - Attach **machine-readable provenance** to every number: which sensor, which dates, which threshold, how much of the area was actually observed
 - Say **"insufficient data"** and stop, rather than filling a gap with a plausible-looking value
 
@@ -42,7 +50,7 @@ This section comes before the features on purpose.
 ## Install
 
 ```bash
-git clone https://github.com/<your-username>/ecomine-observatory.git
+git clone https://github.com/saifeldinkhedir-coder/ecomine-observatory.git
 cd ecomine-observatory
 python -m venv .venv && source .venv/bin/activate   # Windows: .venv\Scripts\activate
 pip install -r requirements.txt

@@ -21,6 +21,7 @@ authors:
     affiliation: "University of Khartoum"
 license: GPL-3.0
 repository-code: "https://github.com/saifeldinkhedir-coder/ecomine-observatory"
+url: "https://github.com/saifeldinkhedir-coder/ecomine-observatory"
 keywords:
   - remote sensing
   - Google Earth Engine
@@ -28,7 +29,12 @@ keywords:
   - environmental monitoring
   - Sentinel-1
   - Sentinel-2
+  - Landsat
+  - SRTM
+  - synthetic aperture radar
   - change detection
+  - Africa
+  - Middle East
 version: "0.1.0"
 date-released: "2026-08-11"
 doi: 10.5281/zenodo.XXXXXXXX

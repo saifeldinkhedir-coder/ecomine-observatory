@@ -12,6 +12,11 @@ secrets/
 
 # --- Generated outputs (regenerate, don't version) ---
 *.html
+*.db
+*.sqlite
+*.sqlite3
+*.pdf
+stage3_metrics.json
 ecomine_step1_provenance.json
 ecomine_stage2_indicators.json
 outputs/
